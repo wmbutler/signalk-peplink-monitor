@@ -1,6 +1,6 @@
 {
   "name": "signalk-peplink-monitor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "SignalK plugin to monitor Peplink router WAN connections and cellular signal quality",
   "main": "index.js",
   "scripts": {
