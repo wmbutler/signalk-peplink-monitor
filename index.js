@@ -42,7 +42,7 @@ module.exports = function(app) {
       connectionName: {
         type: 'string',
         title: 'Connection Name to Monitor',
-        description: 'Name of the WAN connection to monitor (e.g., T-Mobile, Verizon)'
+        description: 'Your name for the WAN connection to monitor (e.g., T-Mobile, Verizon)'
       },
       pollInterval: {
         type: 'number',

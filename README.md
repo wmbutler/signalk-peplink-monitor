@@ -4,12 +4,14 @@ A SignalK plugin that monitors Peplink router WAN connections and provides detai
 
 ## Features
 
-- Monitor multiple WAN connections (Cellular, Ethernet, WiFi)
+**Currently Implemented:**
 - Real-time cellular signal quality calculation based on RSSI, SINR, RSRP, and RSRQ
 - Configurable polling intervals
-- Support for multiple cellular carriers
+
+**Planned Features:**
+- Monitor multiple WAN connections (Cellular, Ethernet, WiFi)
 - Network statistics tracking (TX/RX packets and bytes)
-- Signal strength metrics for marine internet connectivity
+- Additional signal strength metrics for marine internet connectivity
 
 ## Installation
 
@@ -25,8 +27,9 @@ A SignalK plugin that monitors Peplink router WAN connections and provides detai
 1. SSH to your SignalK server
 2. Navigate to the SignalK plugins directory
 3. Clone this repository:
+
    ```bash
-   git clone https://github.com/yourusername/signalk-peplink-monitor.git
+   git clone https://github.com/wmbutler/signalk-peplink-monitor.git
    cd signalk-peplink-monitor
    npm install
    ```
@@ -47,13 +50,13 @@ Configure the plugin through the SignalK admin interface:
 
 - **Router IP Address**: IP address of your Peplink router
 - **Password**: SSH password for router access
-- **Connection Name**: Name of the WAN connection to monitor (e.g., T-Mobile, Verizon)
+- **Connection Name**: Name you assigned to the Cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
 
 ### Optional Settings
 
 - **SSH Port**: SSH port (default: 22)
 - **Username**: SSH username (default: admin)
-- **Connection Name**: Name of the WAN connection to monitor (e.g., T-Mobile, Verizon)
+- **Connection Name**: Name you assigned to the cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
 - **Poll Interval**: How often to check status in seconds (default: 30, minimum: 10)
 - **Enabled Connections**: Array of connection types to monitor (default: ["Cellular", "Ethernet"])
 
@@ -76,19 +79,6 @@ The plugin publishes data to the following SignalK paths:
 ### Cellular Specific (when available)
 
 - `communications.wan.connection[N].cellular.signalQuality` - Signal quality (0.0-1.0)
-- `communications.wan.connection[N].cellular.carrier` - Carrier name
-- `communications.wan.connection[N].cellular.network` - Network type (LTE, LTE-A, etc.)
-- `communications.wan.connection[N].cellular.rssi` - RSSI in dBm
-- `communications.wan.connection[N].cellular.sinr` - SINR in dB
-- `communications.wan.connection[N].cellular.rsrp` - RSRP in dBm
-- `communications.wan.connection[N].cellular.rsrq` - RSRQ in dB
-
-### Statistics
-
-- `communications.wan.connection[N].statistics.txPackets` - Transmitted packets
-- `communications.wan.connection[N].statistics.txBytes` - Transmitted bytes
-- `communications.wan.connection[N].statistics.rxPackets` - Received packets
-- `communications.wan.connection[N].statistics.rxBytes` - Received bytes
 
 ## Signal Quality Calculation
 
@@ -136,13 +126,9 @@ Enable debug logging in SignalK settings to see detailed plugin operation:
 
 ## Compatible Routers
 
-This plugin has been tested with:
+The peplink router must support:
 
-- Peplink Balance series
-- Peplink MAX series with SSH access
-
-The router must support:
-
+- Cellular connectivity
 - SSH access
 - "get wan" command that returns structured WAN connection data
 
