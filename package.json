@@ -1,0 +1,35 @@
+{
+  "name": "signalk-peplink-monitor",
+  "version": "1.0.0",
+  "description": "SignalK plugin to monitor Peplink router WAN connections and cellular signal quality",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "signalk-node-server-plugin",
+    "peplink",
+    "cellular",
+    "wan",
+    "router",
+    "monitoring"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/signalk-peplink-monitor.git"
+  },
+  "dependencies": {
+    "ssh2": "^1.15.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "signalk": {
+    "appstore": {
+      "categories": ["Monitoring", "Communication"],
+      "compatibility": ["signalk-server-node"]
+    }
+  }
+}
