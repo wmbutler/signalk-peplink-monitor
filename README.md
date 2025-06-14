@@ -53,7 +53,6 @@ Configure the plugin through the SignalK admin interface:
 - **Router IP Address**: IP address of your Peplink router
 - **Password**: SSH password for router access
 - **Connection Name**: Name you assigned to the Cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
-
 - **SSH Port**: SSH port (default: 22)
 - **Username**: SSH username (default: admin)
 - **Connection Name**: Name you assigned to the cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
@@ -64,7 +63,6 @@ Configure the plugin through the SignalK admin interface:
 The plugin currently publishes data to the following SignalK path:
 
 - `communication.cellular.signalQuality` - Signal quality (0.0-1.0)
-
 
 ## Signal Quality Calculation
 
@@ -91,7 +89,7 @@ The plugin calculates cellular signal quality as a weighted percentage based on:
    - Verify router IP address and credentials
    - Check that SSH is enabled on the router
    - Ensure firewall allows SSH connections
-   - Try connecting manually: `ssh admin@192.168.50.1`
+   - Try connecting manually: `ssh admin@<ip_address>`
 
 2. **No data appearing**
    - Check SignalK debug logs for error messages
