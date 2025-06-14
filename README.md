@@ -1,17 +1,17 @@
 # SignalK Peplink Monitor
 
-A SignalK plugin that monitors Peplink router WAN connections and provides detailed cellular signal quality information.
+![](IMG_5341.PNG)
+
+A SignalK plugin that monitors Peplink router WAN connections and provides cellular signal quality scale.
 
 ## Features
 
-**Currently Implemented:**
+- Monitor multiple WAN connections (Cellular, Ethernet, WiFi)
 - Real-time cellular signal quality calculation based on RSSI, SINR, RSRP, and RSRQ
 - Configurable polling intervals
-
-**Planned Features:**
-- Monitor multiple WAN connections (Cellular, Ethernet, WiFi)
+- Support for multiple cellular carriers
 - Network statistics tracking (TX/RX packets and bytes)
-- Additional signal strength metrics for marine internet connectivity
+- Signal strength metrics for marine internet connectivity
 
 ## Installation
 
@@ -21,6 +21,8 @@ A SignalK plugin that monitors Peplink router WAN connections and provides detai
 2. Navigate to App Store
 3. Search for "peplink-monitor"
 4. Click Install
+5. Activate SSH access on your Peplink Router
+6. Set port ssh port to 22 on your Peplink
 
 ### Manual Installation
 
@@ -60,25 +62,12 @@ Configure the plugin through the SignalK admin interface:
 - **Poll Interval**: How often to check status in seconds (default: 30, minimum: 10)
 - **Enabled Connections**: Array of connection types to monitor (default: ["Cellular", "Ethernet"])
 
-## SignalK Data Paths
+## SignalK Data Path
 
-The plugin publishes data to the following SignalK paths:
+The plugin currently publishes data to the following SignalK path:
 
-### Basic Connection Info
+- `communication.cellular.signalQuality` - Signal quality (0.0-1.0)
 
-- `communications.wan.connection[N].name` - Connection name
-- `communications.wan.connection[N].status` - Connection status
-- `communications.wan.connection[N].type` - Connection type (Cellular/Ethernet/Wifi)
-
-### Network Details
-
-- `communications.wan.connection[N].ipAddress` - Assigned IP address
-- `communications.wan.connection[N].gateway` - Default gateway
-- `communications.wan.connection[N].dns` - DNS servers array
-
-### Cellular Specific (when available)
-
-- `communications.wan.connection[N].cellular.signalQuality` - Signal quality (0.0-1.0)
 
 ## Signal Quality Calculation
 
@@ -156,8 +145,4 @@ For issues and questions:
 
 This plugin is particularly useful for:
 
-- Monitoring internet connectivity while cruising
-- Tracking data usage across multiple connections
-- Optimizing cellular signal quality for weather routing
-- Automated failover monitoring between connections
-- Remote monitoring of vessel connectivity status
+- Remote monitoring of vessel connectivity status across cellular connections.
