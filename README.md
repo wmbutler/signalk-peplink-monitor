@@ -6,7 +6,7 @@ A SignalK plugin that monitors Peplink router WAN connections and provides cellu
 
 ## Features
 
-- Monitor multiple WAN connections (Cellular, Ethernet, WiFi)
+- Monitor Cellular Connection
 - Real-time cellular signal quality calculation based on RSSI, SINR, RSRP, and RSRQ
 - Configurable polling intervals
 - Support for multiple cellular carriers
@@ -22,7 +22,7 @@ A SignalK plugin that monitors Peplink router WAN connections and provides cellu
 3. Search for "peplink-monitor"
 4. Click Install
 5. Activate SSH access on your Peplink Router
-6. Set port ssh port to 22 on your Peplink
+6. Set  ssh port to 22 on your Peplink
 
 ### Manual Installation
 
@@ -54,13 +54,10 @@ Configure the plugin through the SignalK admin interface:
 - **Password**: SSH password for router access
 - **Connection Name**: Name you assigned to the Cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
 
-### Optional Settings
-
 - **SSH Port**: SSH port (default: 22)
 - **Username**: SSH username (default: admin)
 - **Connection Name**: Name you assigned to the cellular WAN connection to monitor (e.g., T-Mobile, Verizon)
 - **Poll Interval**: How often to check status in seconds (default: 30, minimum: 10)
-- **Enabled Connections**: Array of connection types to monitor (default: ["Cellular", "Ethernet"])
 
 ## SignalK Data Path
 
@@ -73,10 +70,10 @@ The plugin currently publishes data to the following SignalK path:
 
 The plugin calculates cellular signal quality as a weighted percentage based on:
 
-- **RSRP (35%)**: Reference Signal Received Power - most important for coverage
-- **SINR (35%)**: Signal to Interference plus Noise Ratio - most important for data quality
-- **RSSI (20%)**: Received Signal Strength Indicator - general signal strength
-- **RSRQ (10%)**: Reference Signal Received Quality - signal quality indicator
+- **RSRP**: Reference Signal Received Power - most important for coverage
+- **SINR**: Signal to Interference plus Noise Ratio - most important for data quality
+- **RSSI**: Received Signal Strength Indicator - general signal strength
+- **RSRQ**: Reference Signal Received Quality - signal quality indicator
 
 ### Quality Ranges
 
